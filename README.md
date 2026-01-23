@@ -1,20 +1,25 @@
 # Data Engineering Zoomcamp – Cohort 2026
 ### Homework Repository
 
-This repository is used to store and share all homework assignments completed as part of the **Data Engineering Zoomcamp (DEZC) – Cohort 2026**.
+This repository is used to store and share all homework assignments completed as part of the **Data Engineering Zoomcamp – Cohort 2026**.
 
 The goal of this repository is to keep the solutions organized, version-controlled, and easily accessible throughout the program. Each module contains its own folder with code, notes, and any additional resources used to complete the exercises.
 
 ## 📁 Repository Structure
 ```
 /
-├── module01/
-├── module02/
-├── module03/
-├── module04/
-├── module05/
-├── module06/
-└── README.md
+├── Homework 1 - Docker, SQL and Terraform/
+├── Homework 2 - Workflow Orchestration/
+├── Homework 3 - Data Warehousing/
+├── Homework 4 - Analytics Engineering/
+├── Homework 5 - Data Platforms/
+├── Workshop 1 - Ingestion with dlt/
+├── Homework 6 - Batch/
+├── Homework 7 - Streaming/
+└── Projects/
+    ├── Project Attempt 1/
+    └── Project Attempt 2/
+---README.md
 ```
 
 Each module directory contains:
