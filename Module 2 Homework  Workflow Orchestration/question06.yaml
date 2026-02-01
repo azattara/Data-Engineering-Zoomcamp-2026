@@ -1,0 +1,5 @@
+triggers:
+  - id: daily_new_york_schedule
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "0 9 * * *" # Executa diariamente às 09:00 AM
+    timezone: America/New_York
