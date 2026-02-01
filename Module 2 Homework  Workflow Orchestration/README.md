@@ -24,17 +24,38 @@ The answer is: 'green_tripdata_2020-04.csv'
 
 To find the answer, we executed the following query on the database containing the Yellow Taxi information:
 
+
+```
+SELECT COUNT(*)
+FROM yellow_tripdata
+WHERE DATE_PART('year', tpep_pickup_datetime) = 2020;
+```
+
+
 The result is 24,648,499 rows.
 
 ## Question 4. How many rows are there for the Green Taxi data for all CSV files in the year 2020?
 
 To find the answer, we executed the following query on the database containing the Green Taxi information (All 2020 Files):
 
+```
+SELECT COUNT(*)
+FROM green_tripdata
+WHERE DATE_PART('year', lpep_pickup_datetime) = 2020;
+```
+
 The result is 1,734,051 rows.
 
 ## Question 5. How many rows are there for the Yellow Taxi data for the March 2021 CSV file?
 
 To find the answer, we executed the following query on the database containing the Yellow Taxi data for the March 2021:
+
+```
+SELECT COUNT(*)
+FROM yellow_tripdata
+WHERE DATE_PART('year', tpep_pickup_datetime) = 2021
+  AND DATE_PART('month', tpep_pickup_datetime) = 3;
+```
 
 The result is 1,925,152 rows.
 
