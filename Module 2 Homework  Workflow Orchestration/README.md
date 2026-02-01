@@ -1,3 +1,23 @@
+## Extend the existing Kestra ELT workflows to include NYC Taxi data for the year 2021
+
+Solution Approach: The pipeline was extended by running the existing ELT flow for additional historical data. I used Kestra backfills to manually execute the main flow for:
+
+Taxi types: Yellow & Green
+
+Year: 2021
+
+Months: January → July
+
+This was orchestrated using a backfill flow:
+
+backfill_2021.yaml
+
+The flow loops over taxi type and month, triggering the main pipeline:
+
+05_postgres_taxi_scheduled
+This loads data into Postgres staging tables, applies transformations, and merges into final tables.
+
+
 ## Question 1. Within the execution for Yellow Taxi data for the year 2020 and month 12: what is the uncompressed file size (i.e., the output file yellow_tripdata_2020-12.csv of the extract task)?
 
 To find out the size of the uncompressed file within Kestra without having to download it manually, you can add a Shell Commands task right after extraction.
