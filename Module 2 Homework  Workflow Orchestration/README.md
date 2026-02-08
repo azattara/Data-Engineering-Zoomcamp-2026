@@ -1,3 +1,23 @@
+## Extend the existing Kestra ELT workflows to include NYC Taxi data for the year 2021
+
+Solution Approach: The pipeline was extended by running the existing ELT flow for additional historical data. I used Kestra backfills to manually execute the main flow for:
+
+Taxi types: Yellow & Green
+
+Year: 2021
+
+Months: January → July
+
+This was orchestrated using a backfill flow:
+
+backfill_2021.yaml
+
+The flow loops over taxi type and month, triggering the main pipeline:
+
+05_postgres_taxi_scheduled
+This loads data into Postgres staging tables, applies transformations, and merges into final tables.
+
+
 ## Question 1. Within the execution for Yellow Taxi data for the year 2020 and month 12: what is the uncompressed file size (i.e., the output file yellow_tripdata_2020-12.csv of the extract task)?
 
 To find out the size of the uncompressed file within Kestra without having to download it manually, you can add a Shell Commands task right after extraction.
@@ -24,17 +44,38 @@ The answer is: 'green_tripdata_2020-04.csv'
 
 To find the answer, we executed the following query on the database containing the Yellow Taxi information:
 
+
+```
+SELECT COUNT(*)
+FROM yellow_tripdata
+WHERE DATE_PART('year', tpep_pickup_datetime) = 2020;
+```
+
+
 The result is 24,648,499 rows.
 
 ## Question 4. How many rows are there for the Green Taxi data for all CSV files in the year 2020?
 
 To find the answer, we executed the following query on the database containing the Green Taxi information (All 2020 Files):
 
+```
+SELECT COUNT(*)
+FROM green_tripdata
+WHERE DATE_PART('year', lpep_pickup_datetime) = 2020;
+```
+
 The result is 1,734,051 rows.
 
 ## Question 5. How many rows are there for the Yellow Taxi data for the March 2021 CSV file?
 
 To find the answer, we executed the following query on the database containing the Yellow Taxi data for the March 2021:
+
+```
+SELECT COUNT(*)
+FROM yellow_tripdata
+WHERE DATE_PART('year', tpep_pickup_datetime) = 2021
+  AND DATE_PART('month', tpep_pickup_datetime) = 3;
+```
 
 The result is 1,925,152 rows.
 
