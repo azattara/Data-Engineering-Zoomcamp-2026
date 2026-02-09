@@ -1,11 +1,11 @@
-## What is count of records for the 2024 Yellow Taxi Data?
+## Question 1 What is count of records for the 2024 Yellow Taxi Data?
 
 The image below shows the count of records for the 2024 Yellow Taxi Data:
 
 ![](readme_assets/1.PNG)
 
 
-## Write a query to count the distinct number of PULocationIDs for the entire dataset on both the tables.
+## Question 2. Write a query to count the distinct number of PULocationIDs for the entire dataset on both the tables.
 ## What is the estimated amount of data that will be read when this query is executed on the External Table and the Table?
 
 The image below shows the estimated amount of data that will be read when this query is executed on the External Table and the Table:
@@ -13,7 +13,7 @@ The image below shows the estimated amount of data that will be read when this q
 ![](readme_assets/2a.PNG)
 ![](readme_assets/2b.PNG)
 
-## Write a query to retrieve the PULocationID from the table (not the external table) in BigQuery. Now write a query to retrieve the PULocationID and DOLocationID on the same table. Why are the estimated number of Bytes different?
+## Question 3. Write a query to retrieve the PULocationID from the table (not the external table) in BigQuery. Now write a query to retrieve the PULocationID and DOLocationID on the same table. Why are the estimated number of Bytes different?
 
 The image below shows the estimated number of Bytes from the materialized table to retrieve the PULocationID and  to retrieve the PULocationID and DOLocationID:
 
