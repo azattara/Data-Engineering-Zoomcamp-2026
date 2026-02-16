@@ -1,54 +1,41 @@
-## What is count of records for the 2024 Yellow Taxi Data?
+## Question 1.  If you run dbt run --select int_trips_unioned, what models will be built?
 
-The image below shows the count of records for the 2024 Yellow Taxi Data:
+The image below shows which models is build,when I run dbt run --select int_trips_unioned:
 
-![](readme_assets/1.png)
-
-
-## Write a query to count the distinct number of PULocationIDs for the entire dataset on both the tables.
-## What is the estimated amount of data that will be read when this query is executed on the External Table and the Table?
-
-The image below shows the estimated amount of data that will be read when this query is executed on the External Table and the Table:
-
-![](readme_assets/2a.png)
-![](readme_assets/2b.png)
-
-## Write a query to retrieve the PULocationID from the table (not the external table) in BigQuery. Now write a query to retrieve the PULocationID and DOLocationID on the same table. Why are the estimated number of Bytes different?
-
-The image below shows the estimated number of Bytes from the materialized table to retrieve the PULocationID and  to retrieve the PULocationID and DOLocationID:
-
-![](readme_assets/3a.png)
-![](readme_assets/3b.png)
-
-## Question 4. How many records have a fare_amount of 0?
-
-The image below how many records have a fare_amount of 0:
-
-![](readme_assets/4.png)
+![](readme_assets/question1.PNG)
 
 
-## Question 5. What is the best strategy to make an optimized table in Big Query if your query will always filter based on tpep_dropoff_datetime and order the results by VendorID (Create a new table with this strategy)?
+## Question 2. New value 6 appears in payment_type. What happens on dbt test?
 
-The image below shows the query to create the optimized table:
+The answeer is: dbt fails the test with non-zero exit code
 
-![](readme_assets/5.png)
+## Question 3. After running your dbt project, query the fct_monthly_zone_revenue model.
+## What is the count of records in the fct_monthly_zone_revenue model?
 
-## Question 6. Write a query to retrieve the distinct VendorIDs between tpep_dropoff_datetime 2024-03-01 and 2024-03-15 (inclusive). Use the materialized table you created earlier in your from clause and note the estimated bytes. Now change the table in the from clause to the partitioned table you created for question 5 and note the estimated bytes processed. What are these values?
+The image below shows the count of records in the fct_monthly_zone_revenue model:
 
-The image below shows the query and the estimated bytes processed to retrieve the distinct VendorIDs between tpep_dropoff_datetime 2024-03-01 and 2024-03-15 from the materialized table and the partitioned table created for question 5:
+![](readme_assets/question3.PNG)
 
-![](readme_assets/6a.png)
-![](readme_assets/6b.png)
+## Question 4. Using the fct_monthly_zone_revenue table, find the pickup zone with the highest total revenue (revenue_monthly_total_amount) for Green taxi trips in 2020.
+## Which zone had the highest revenue?
 
-## Question 7. Where is the data stored in the External Table you created?
+The image below shows which zone had the highest revenue:
 
-The data in External Table is not stored inside BigQuery. It stays in its original location, typically Google Cloud Storage (GCS) (most common) (e.g. a bucket with Parquet/CSV/JSON files).
-
-## Question 8. It is best practice in Big Query to always cluster your data?
-
-False, clustering should be applied only when it aligns with your query patterns and provides a clear performance or cost benefit.
+![](readme_assets/question4.PNG)
 
 
-## Question 9. Write a `SELECT count(*)` query FROM the materialized table you created. How many bytes does it estimate will be read? Why?
+## Question 5. Using the fct_monthly_zone_revenue table, what is the total number of trips (total_monthly_trips) for Green taxis in October 2019?
 
-The estimated bytes processed is zero because BigQuery can answer this query using metadata only. For native (materialized) BigQuery tables, BigQuery stores the row count as table metadata.
+The image below shows the total number of trips (total_monthly_trips) for Green taxis in October 2019:
+
+![](readme_assets/question5.PNG)
+
+## Question 6. After Create a staging model stg_fhv_tripdata with these requirements:
+## - Filter out records where dispatching_base_num IS NULL
+## - Rename fields to match your project's naming conventions (e.g., PUlocationID → pickup_location_id)
+## What is the count of records in stg_fhv_tripdata?
+
+The image below shows the count of records in stg_fhv_tripdata
+
+![](readme_assets/question6.PNG)
+
