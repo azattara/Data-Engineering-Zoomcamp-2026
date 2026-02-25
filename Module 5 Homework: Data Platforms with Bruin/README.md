@@ -17,4 +17,33 @@ time_interval is designed for time-based processing windows—e.g., “reprocess
 
 Therefore the answer is `time_interval` - incremental based on a time column
 
-## Question 3.
+## Question 3. Pipeline VariablesYou have a variable defined in pipeline.yml:variables: taxi_types: type: array items: type: string default: ["yellow", "green"]How do you override this when running the pipeline to only process yellow taxis? 
+
+The specific command `bruin run --var 'taxi_types=["yellow"]'` performs the following actions:
+
+`bruin run`: Starts the execution of an individual asset (such as an SQL or Python script) or an entire pipeline in the current directory.
+
+`--var`: Defines a dynamic variable (or parameter) that will be injected into the pipeline or asset code during execution.
+
+`'taxi_types=["yellow"]`: Defines the variable name as `taxi_types` and assigns it a list containing the string "yellow".
+
+Therefore the answer is - **`bruin run --var 'taxi_types=["yellow"]'`**
+
+
+## Question 4. Running with DependenciesYou've modified the ingestion/trips.py asset and want to run it plus all downstream assets. Which command should you use?
+
+Use the --downstream flag with bruin run, targeting the asset you changed:
+
+- **`bruin run ingestion/trips.py --downstream`**
+
+--downstream tells Bruin to execute the specified asset and all assets that depend on it (its downstream graph)
+
+Then the answer is - **`bruin run ingestion/trips.py --downstream`**
+
+## Question 5. Quality Checks. You want to ensure the pickup_datetime column in your trips table never has NULL values. Which quality check should you add to your asset definition? 
+
+To check ythe quality it necessary add a column‑level quality check with the built‑in not_null check on pickup_datetime in the asset’s definition.
+
+Answer: - **`name: not_null`**
+
+
