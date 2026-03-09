@@ -21,7 +21,7 @@
 >
 > The average size is **25MB**.
 >
-> ## Question 3: Count records
+## Question 3: Count records
 
 > How many taxi trips were there on the 15th of November?
 >
@@ -42,7 +42,8 @@ The number of trips started on the 15th of November is:
 
 - **162,604**
 
-- ## Question 4: Longest trip
+
+## Question 4: Longest trip
 
 > What is the length of the longest trip in the dataset in hours?
 
