@@ -90,5 +90,19 @@ The answer is **90.6**.
 > Spark's User Interface which shows the application's dashboard runs on which local port?
 >
 > ![](images/question05.PNG)
->
-> 
+
+
+## Question 6: Least frequent pickup location zone
+> Using the zone lookup data and the Yellow November 2025 data, what is the name of the LEAST frequent pickup location Zone?
+
+The 3 zones with the least number of trips are these zones, which had no trip recorded during that period:
+
+* **Charleston/Tottenville**
+* **Freshkills Park**
+* **Great Kills Park**
+
+Then, these 3 zones had only one trip recorded:
+
+* **Governor's Island/Ellis Island/Liberty Island**
+* **Eltingville/Annadale/Prince's Bay**
+* **Arden Heights**
