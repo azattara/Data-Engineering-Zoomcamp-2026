@@ -11,4 +11,45 @@ We create a topic called green-trips using the follwing comand `docker exec -it 
 
 ## Question 3. Consumer - trip distance
 
-To answer how many trips have a trip_distance greater than 5.0 kilometers we create execute the script  [`homework_consumer.py`](https://github.com/azattara/streaming-workshop/blob/main/src/consumers/homework_consumer.py). The answer is 8506.
+To answer how many trips have a trip_distance greater than 5.0 kilometers we create execute the script  [`homework_consumer.py`](https://github.com/azattara/streaming-workshop/blob/main/src/consumers/homework_consumer.py) . The answer is 8506.
+
+## Question 4. Tumbling window - pickup location
+We create the Flink Job [`aggregated_pickup_job.py`](https://github.com/azattara/streaming-workshop/blob/main/src/jobs/aggregated_pickup_job.py) who reads from green-trips and uses a 5-minute tumbling window to count trips per PULocationID
+
+After we execute this query: 
+```sql
+SELECT PULocationID, num_trips
+FROM aggregated_pickup
+ORDER BY num_trips DESC
+LIMIT 3;
+```
+
+the `PULocationID` with the most trips in a single 5-minute window is 74.
+
+## Question 5. Session window - longest streak
+We create the Flink Job [`longest_streak_job.py`](https://github.com/azattara/streaming-workshop/blob/main/src/jobs/longest_streak_job.py)
+
+After processing all the events with the job, this query:
+
+```sql
+SELECT window_start, window_end, PULocationID, num_trips
+FROM aggregated_longest_streak
+ORDER BY num_trips DESC
+LIMIT 3;
+```
+we find that, the longest streak was one of 81 rides.
+
+## Question 6. Tumbling window - largest tip
+We create the Flink Job [`aggregated_tips_per_hour_job`](https://github.com/azattara/streaming-workshop/blob/main/src/jobs/aggregated_tips_per_hour_job.py)
+Then we execute the query:
+
+```sql
+SELECT *
+FROM aggregated_tips_per_hour
+ORDER BY total_tips DESC
+LIMIT 5;
+```
+
+ Who retuned the hour with the highest total tip amount: 2025-10-16 18:00:00.
+
+
